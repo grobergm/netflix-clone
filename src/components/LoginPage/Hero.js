@@ -24,7 +24,14 @@ function Hero(){
 		left:'0',
 		right:'0',
 		bottom:'0',
-		backgroundImage:'linear-gradient(0deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%),radial-gradient(50% 120%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%)'
+		backgroundImage:'linear-gradient(0deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%),radial-gradient(50% 120%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%)',
+	}
+	const ctaBtn={
+		fontSize:'2rem',
+		fontWeight:'bold',
+		marginTop:'20px',
+		padding:'20px',
+		cursor:'pointer'
 	}
 	return (
 		<div style={heroBanner}>
@@ -37,8 +44,9 @@ function Hero(){
 					</div>
 					<div style={callToAction}>
 						<h1>See What's Next.</h1>
-						<h3 className='caps'>Watch anywhere. Cancel anytime.</h3>
-						<a className='button caps'>watch free for 30 days</a>
+						<p className='caps'>Watch anywhere. Cancel anytime.</p>
+						<br/>
+						<a style={ctaBtn} className='button caps'>watch free for 30 days</a>
 					</div>
 				</div>
 			</div>
