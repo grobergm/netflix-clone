@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Hero from './Hero';
 import IconBar from './IconBar';
+import Preview from './Preview';
 
 class Login extends Component{
 	constructor(props){
@@ -21,7 +22,7 @@ class Login extends Component{
 		<div>
 			<Hero />
 			<IconBar currentTab={this.state.preview} changeTab={this.changePreview} />
-			<hr style={{margin:'0',color:'gray'}}/>
+			<Preview tab={this.state.preview} />
 		</div>
 		)
 	}
