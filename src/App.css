@@ -3,8 +3,9 @@ body{
 }
 
 .logo{
-  width:180px;
-  align-self:center;
+	display:inline-block;
+	width:180px;
+	fill:#e50914;
 }
 
 .button{
@@ -12,6 +13,10 @@ body{
   padding:5px;
   align-self:center;
   border-radius:2px;
+}
+
+.caps{
+  text-transform:uppercase;
 }
 
 h1{
