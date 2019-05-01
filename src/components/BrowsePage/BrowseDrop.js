@@ -4,7 +4,7 @@ function BrowseDrop(props){
 	const styles={
 		zIndex:'1',
 		position:'fixed',
-		top:'60px',
+		top:'80px',
 		left:'150px',
 		backgroundColor:'rgba(0,0,0,0.9)',
 		padding:'20px 40px',

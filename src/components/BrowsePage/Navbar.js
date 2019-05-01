@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import profile from '../../img/browse/profile.png';
+
 
 function Navbar(props){
 	const navStyle={
@@ -14,7 +16,8 @@ function Navbar(props){
 
 	const subNav={
 		display:'flex',
-		alignItems:'center'
+		alignItems:'center',
+		paddingRight:'20px'
 	}
 
 	return(
@@ -29,7 +32,19 @@ function Navbar(props){
 					</div>
 				</div>
 			</div>
-			<div>
+			<div style={subNav}>
+				<div className='nav-item'>
+					<i className="fas fa-search"></i>
+				</div>
+				<div className='nav-item'>
+					<a>DVD</a>
+				</div>
+				<div className='nav-item'>
+					<i className="fas fa-bell"></i>
+				</div>
+				<div className='nav-item'>
+					<img style={{height:'100%'}} src={profile}/>
+				</div>
 			</div>
 		</div>
 	)
