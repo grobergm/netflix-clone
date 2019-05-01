@@ -1,0 +1,11 @@
+.hover-icon{
+	background-color:rgba(0,0,0,0.5);
+	padding:10px 25px;
+	margin:5px;
+	border-radius:2px;
+}
+
+.hover-icon:hover{
+	background-color:#e6e6e6;
+	color:#000;
+}

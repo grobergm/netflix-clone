@@ -8,7 +8,8 @@ const navStyle={
 	backgroundColor: props.top? 'transparent':'black',
 	transition: 'background-color 1s',
 	position: 'fixed',
-	width:'100%'
+	width:'100%',
+	zIndex:'5'
 }
 return(
 	<div style={navStyle}>
