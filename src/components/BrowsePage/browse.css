@@ -9,3 +9,13 @@
 	background-color:#e6e6e6;
 	color:#000;
 }
+
+.nav-item{
+	height:100%;
+	padding:20px;
+}
+
+.drop-item{
+	cursor:pointer;
+	margin-bottom:20px;
+}

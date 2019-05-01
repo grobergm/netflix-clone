@@ -20,15 +20,11 @@ function HeroTitle(){
 		backgroundColor:'rgba(0,0,0,0.25)',
 		padding:'10px'
 	}
-	const flexBox={
-		display:'flex'
-	}
-
 	return (
 		<div style={background}>
 			<div style={info}>
 				<img style={{width:'100%'}} src={heroTitle}/>
-				<div style={flexBox}>
+				<div style={{display:'flex'}}>
 					<div className='hover-icon'>
 						<i className="fas fa-play"></i> Play
 					</div>

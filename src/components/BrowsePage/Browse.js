@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import './browse.css';
 import Navbar from './Navbar';
 import HeroTitle from './HeroTitle';
+import BrowseDrop from './BrowseDrop';
 
-class Browse extends Component{
+	class Browse extends Component{
 	constructor(props){
 		super(props);
 		this.state={
-			top:true
+			top:true,
+			selected:null
 		}
 		this.checkIfTop=this.checkIfTop.bind(this);
+		this.hoverSelect=this.hoverSelect.bind(this);
 	}
 
 	componentDidMount(){
@@ -17,7 +20,7 @@ class Browse extends Component{
 	}
 
 	componentWillUnmount(){
-		window.removeEventListener('scroll', this.handleScroll);
+		window.removeEventListener('scroll', this.checkIfTop);
 	}
 
 	checkIfTop(){
@@ -28,15 +31,22 @@ class Browse extends Component{
 		}
 	}
 
-	render(){
-		return(
-			<div>
-			<Navbar top={this.state.top} />
-			<HeroTitle />
-			</div>
-		)
+	hoverSelect(name){
+		this.setState({selected:name});
+		console.log(this.state.selected)
 	}
 
+	render(){
+	return(
+		<div>
+			<Navbar top={this.state.top} hoverSelect={this.hoverSelect} />
+			{
+				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
+			}
+			<HeroTitle />
+		</div>
+	)
+	}
 }
 
 export default Browse;
