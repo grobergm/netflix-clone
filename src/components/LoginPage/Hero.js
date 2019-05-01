@@ -7,8 +7,7 @@ function Hero(){
 		position:'relative',
 		backgroundImage:`url(${heroMD})`,
 		backgroundSize:'cover',
-		height:'400px',
-		textAlign:'center'
+		height:'400px'
 	}
 	const nav={
 		display: 'flex',

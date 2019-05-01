@@ -11,7 +11,6 @@ function Preview(props){
 	}else if(props.tab==='price'){
 		return <Price />
 	}
-	
 }
 
 export default Preview;
