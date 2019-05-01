@@ -1,6 +1,7 @@
 body{
   color:white;
   background:black;
+  text-align:center;
 }
 
 .logo{
@@ -22,6 +23,10 @@ body{
 
 h1{
   font-size:3rem;
+}
+
+h2{
+  font-size:2rem;
 }
 
 .preview-icons{
