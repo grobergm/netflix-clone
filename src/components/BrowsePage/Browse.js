@@ -3,6 +3,7 @@ import './browse.css';
 import Navbar from './Navbar';
 import HeroTitle from './HeroTitle';
 import BrowseDrop from './BrowseDrop';
+import TitleRow from './TitleRow';
 
 	class Browse extends Component{
 	constructor(props){
@@ -44,6 +45,8 @@ import BrowseDrop from './BrowseDrop';
 				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
 			<HeroTitle />
+			<TitleRow />
+			
 		</div>
 	)
 	}
