@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import planet from '../../img/browse/planet.PNG';
 import street from '../../img/browse/street.PNG';
 import summer from '../../img/browse/summer.PNG';
@@ -23,27 +23,42 @@ const titleArray=[
 
 
 
-function TitleRow(props){
-
-	const styles={
-		overflow:'auto',
-		whiteSpace: 'nowrap',
+class TitleRow extends Component{
+	constructor(props){
+		super(props);
+		this.state={
+			selectedIndex:null
+		}
+		this.handleSelect=this.handleSelect.bind(this);
 	}
+
+	handleSelect(id){
+		this.setState({selectedIndex:id});
+	}
+
+	render(){
+		const styles={
+			overflowX:'scroll',
+			whiteSpace: 'nowrap',
+		}
 
 	return (
 		<div style={styles}>
 			{
 				titleArray.map((title,index)=>{
 					return <Title
-										name={title.name} 
-										img={title.img} 
-										tags={title.tags}
+										title={title}
 										key={index}
+										id={index}
+										onSelect={()=>this.handleSelect(index)}
+										selected={this.state.selectedIndex}
 									/>
 				})
 			}
 		</div>
 		)
+	}
+	
 }
 
 export default TitleRow;

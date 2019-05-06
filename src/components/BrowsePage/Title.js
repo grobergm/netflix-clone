@@ -6,11 +6,16 @@ function Title(props){
 		width:'20vw',
 		height:'20vh',
 		margin:'1vw',
-		backgroundImage:`url(${props.img})`,
-		backgroundSize:'cover'
+		backgroundImage:`url(${props.title.img})`,
+		backgroundSize:'cover',
+		transition:'transform 1s',
+		position:'relative',
+		zIndex:props.selected===props.id?'1':'0',
+		transform:props.selected===props.id?'scale(2)':'scale(1)',
 	}
+
 	return(
-		<div style={styles}>
+		<div onMouseOver={props.onSelect} style={styles}>
 		</div>
 		)
 }

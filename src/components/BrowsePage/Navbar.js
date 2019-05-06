@@ -11,7 +11,7 @@ function Navbar(props){
 		transition: 'background-color 1s',
 		position: 'fixed',
 		width:'100%',
-		zIndex:'1'
+		zIndex:'2'
 	}
 
 	const subNav={
