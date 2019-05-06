@@ -40,8 +40,8 @@ import titles from './mockData';
 		console.log(this.state.selected)
 	}
 
-	filterGenre(genre){
-		return titles.filter(title=>title.genre===genre)
+	filterTitles(category,subCategory){
+		return titles.filter(title=>title[category]===subCategory)
 	}
 
 	render(){
@@ -52,7 +52,8 @@ import titles from './mockData';
 				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
 			<HeroTitle />
-			<TitleRow header='Documentaries' titles={this.filterGenre('Documentary')} />
+			<TitleRow header='New Releases' titles={this.filterTitles('newRelease',true)} />
+			<TitleRow header='Documentaries' titles={this.filterTitles('genre','Documentary')} />
 			
 		</div>
 	)
