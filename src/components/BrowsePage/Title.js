@@ -26,8 +26,8 @@ function Title(props){
 		if(props.selected===props.id){
 				info= 
 				<div style={infoStyle}>
-					<i style={{color:'red'}} className="far fa-play-circle"></i>
-					<p>{props.title.name}</p>
+					<i style={{color:'#e50914'}} className="fas fa-play icon-circle"></i>
+					<p>{props.title.name} <i className="fas fa-plus icon-circle"></i></p>
 					<div style={infoStyle}>
 						{props.title.tags.map((tag)=>{
 							return <a>{tag}</a>
