@@ -3,19 +3,42 @@ import React from 'react';
 function Title(props){
 	const styles={
 		display:'inline-block',
-		width:'20vw',
+		width:'35vh',
 		height:'20vh',
-		margin:'1vw',
+		marginRight:'1vw',
 		backgroundImage:`url(${props.title.img})`,
 		backgroundSize:'cover',
 		transition:'transform 1s',
 		position:'relative',
 		zIndex:props.selected===props.id?'1':'0',
-		transform:props.selected===props.id?'scale(2)':'scale(1)',
+		transform:props.selected===props.id?'scale(1.8)':'scale(1)',
 	}
 
+	const infoStyle={
+		position:'absolute',
+		left:'0',
+		bottom:'0',
+		fontWeight:'bold',
+		textAlign:'left'
+	}
+
+	let info=null;
+		if(props.selected===props.id){
+				info= 
+				<div style={infoStyle}>
+					<i style={{color:'red'}} className="far fa-play-circle"></i>
+					<p>{props.title.name}</p>
+					<div style={infoStyle}>
+						{props.title.tags.map((tag)=>{
+							return <a>{tag}</a>
+						})}
+					</div>
+				</div>
+			}
+
 	return(
-		<div onMouseOver={props.onSelect} style={styles}>
+		<div onMouseOver={()=>props.onSelect(props.id)} onMouseLeave={()=>props.onSelect(null)} style={styles}>
+			{info}
 		</div>
 		)
 }
