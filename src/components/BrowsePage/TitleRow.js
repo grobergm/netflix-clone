@@ -20,7 +20,7 @@ class TitleRow extends Component{
 		const styles={
 			overflowX:'auto',
 			whiteSpace: 'nowrap',
-			padding:'10vh 10vw',
+			padding:'5vh 5vw',
 			position:'relative',
 			zIndex:'0',
 			textAlign:'left'

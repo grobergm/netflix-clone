@@ -61,7 +61,7 @@ import titles from './mockData';
 			{
 				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
-			<HeroTitle onAddToList={this.handleAddToList} />
+			<HeroTitle />
 			<TitleRow 
 				header='My List' 
 				titles={this.state.myList}

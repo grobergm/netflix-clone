@@ -34,4 +34,5 @@ p{
 	background-color:rgba(0,0,0,0.8);
 	border:1px solid black;
 	border-radius:50%;
+	cursor:pointer;
 }

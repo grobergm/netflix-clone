@@ -8,10 +8,10 @@ function Title(props){
 		marginRight:'1vw',
 		backgroundImage:`url(${props.title.img})`,
 		backgroundSize:'cover',
-		transition:'transform 1s',
+		transition:'transform 0.5s',
 		position:'relative',
 		zIndex:props.selected===props.id?'1':'0',
-		transform:props.selected===props.id?'scale(1.8)':'scale(1)',
+		transform:props.selected===props.id?'scale(1.5)':'scale(1)',
 	}
 
 	const infoStyle={
@@ -19,7 +19,8 @@ function Title(props){
 		left:'0',
 		bottom:'0',
 		fontWeight:'bold',
-		textAlign:'left'
+		textAlign:'left',
+		paddingLeft:'1vw'
 	}
 
 	let info=null;
@@ -30,7 +31,7 @@ function Title(props){
 					<p>{props.title.name} <i onClick={()=>props.onAddToList(props.title)} className="fas fa-plus icon-circle"></i></p>
 					<div style={infoStyle}>
 						{props.title.tags.map((tag,index)=>{
-							return <a key={index}>{tag}</a>
+							return <a key={index}>{tag}  </a>
 						})}
 					</div>
 				</div>
