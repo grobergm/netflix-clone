@@ -37,6 +37,7 @@ class TitleRow extends Component{
 										id={index}
 										onSelect={this.handleSelect}
 										selected={this.state.selectedIndex}
+										onAddToList={this.props.onAddToList}
 									/>
 				})
 			}

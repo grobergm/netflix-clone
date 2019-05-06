@@ -2,7 +2,7 @@ import React from 'react';
 import heroIMG from '../../img/browse/hero.webp';
 import heroTitle from '../../img/browse/heroTitle.webp';
 
-function HeroTitle(){
+function HeroTitle(props){
 	const background={
 		position:'relative',
 		backgroundImage:`url(${heroIMG})`,
@@ -20,6 +20,7 @@ function HeroTitle(){
 		backgroundColor:'rgba(0,0,0,0.25)',
 		padding:'10px'
 	}
+
 	return (
 		<div style={background}>
 			<div style={info}>
@@ -29,7 +30,7 @@ function HeroTitle(){
 						<i className="fas fa-play"></i> Play
 					</div>
 					<div className='hover-icon' >
-						<i class="fas fa-plus"></i> My List
+						<i className="fas fa-plus"></i> My List
 					</div>
 				</div>
 				<div style={synopsis}>

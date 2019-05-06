@@ -13,10 +13,12 @@ import titles from './mockData';
 		super(props);
 		this.state={
 			top:true,
-			selected:null
+			selected:null,
+			myList:[]
 		}
 		this.checkIfTop=this.checkIfTop.bind(this);
 		this.hoverSelect=this.hoverSelect.bind(this);
+		this.handleAddToList=this.handleAddToList.bind(this);
 	}
 
 	componentDidMount(){
@@ -44,6 +46,14 @@ import titles from './mockData';
 		return titles.filter(title=>title[category]===subCategory)
 	}
 
+	handleAddToList(title){
+		let currentList=this.state.myList.slice();
+		if(!this.state.myList.includes(title)){
+			currentList.unshift(title);
+		}
+		this.setState({myList:currentList});
+	}
+
 	render(){
 	return(
 		<div>
@@ -51,9 +61,23 @@ import titles from './mockData';
 			{
 				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
-			<HeroTitle />
-			<TitleRow header='New Releases' titles={this.filterTitles('newRelease',true)} />
-			<TitleRow header='Documentaries' titles={this.filterTitles('genre','Documentary')} />
+			<HeroTitle onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='My List' 
+				titles={this.state.myList}
+				onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='New Releases' 
+				titles={this.filterTitles('newRelease',true)}
+				onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='Documentaries' 
+				titles={this.filterTitles('genre','Documentary')}
+				onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='Action' 
+				titles={this.filterTitles('genre','Action')}
+				onAddToList={this.handleAddToList} />
 			
 		</div>
 	)

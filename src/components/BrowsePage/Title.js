@@ -27,10 +27,10 @@ function Title(props){
 				info= 
 				<div style={infoStyle}>
 					<i style={{color:'#e50914'}} className="fas fa-play icon-circle"></i>
-					<p>{props.title.name} <i className="fas fa-plus icon-circle"></i></p>
+					<p>{props.title.name} <i onClick={()=>props.onAddToList(props.title)} className="fas fa-plus icon-circle"></i></p>
 					<div style={infoStyle}>
-						{props.title.tags.map((tag)=>{
-							return <a>{tag}</a>
+						{props.title.tags.map((tag,index)=>{
+							return <a key={index}>{tag}</a>
 						})}
 					</div>
 				</div>
