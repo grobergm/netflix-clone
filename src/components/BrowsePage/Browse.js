@@ -5,6 +5,9 @@ import HeroTitle from './HeroTitle';
 import BrowseDrop from './BrowseDrop';
 import TitleRow from './TitleRow';
 
+import titles from './mockData';
+
+
 	class Browse extends Component{
 	constructor(props){
 		super(props);
@@ -37,6 +40,10 @@ import TitleRow from './TitleRow';
 		console.log(this.state.selected)
 	}
 
+	filterGenre(genre){
+		return titles.filter(title=>title.genre===genre)
+	}
+
 	render(){
 	return(
 		<div>
@@ -45,7 +52,7 @@ import TitleRow from './TitleRow';
 				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
 			<HeroTitle />
-			<TitleRow />
+			<TitleRow header='Documentaries' titles={this.filterGenre('Documentary')} />
 			
 		</div>
 	)

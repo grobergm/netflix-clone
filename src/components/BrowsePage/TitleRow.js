@@ -1,25 +1,5 @@
 import React, { Component } from 'react';
-import planet from '../../img/browse/planet.PNG';
-import street from '../../img/browse/street.PNG';
-import summer from '../../img/browse/summer.PNG';
-import avengers from '../../img/browse/avengers.PNG';
-
 import Title from './Title';
-
-const titleArray=[
-{name:'Our Planet', img:planet, tags:['Limited Series','Science & Nature','All Things Wild']},
-{name:'Street Food', img:street, tags:['Visionary','Food & Wine','Docuseries']},
-{name:'Black Summer', img:summer, tags:['Horror','Post Apocolypse','Zombies']},
-{name:'Avengers', img:avengers, tags:['Exciting','Super Hero','Sci Fi']},
-{name:'Our Planet', img:planet, tags:['Limited Series','Science & Nature','All Things Wild']},
-{name:'Street Food', img:street, tags:['Visionary','Food & Wine','Docuseries']},
-{name:'Black Summer', img:summer, tags:['Horror','Post Apocolypse','Zombies']},
-{name:'Avengers', img:avengers, tags:['Exciting','Super Hero','Sci Fi']},
-{name:'Our Planet', img:planet, tags:['Limited Series','Science & Nature','All Things Wild']},
-{name:'Street Food', img:street, tags:['Visionary','Food & Wine','Docuseries']},
-{name:'Black Summer', img:summer, tags:['Horror','Post Apocolypse','Zombies']},
-{name:'Avengers', img:avengers, tags:['Exciting','Super Hero','Sci Fi']},
-]
 
 
 
@@ -38,19 +18,24 @@ class TitleRow extends Component{
 
 	render(){
 		const styles={
-			overflowX:'scroll',
+			overflowX:'auto',
 			whiteSpace: 'nowrap',
+			padding:'10vh 10vw',
+			position:'relative',
+			zIndex:'0',
+			textAlign:'left'
 		}
 
 	return (
 		<div style={styles}>
+			<p>{this.props.header}</p>
 			{
-				titleArray.map((title,index)=>{
+				this.props.titles.map((title,index)=>{
 					return <Title
 										title={title}
 										key={index}
 										id={index}
-										onSelect={()=>this.handleSelect(index)}
+										onSelect={this.handleSelect}
 										selected={this.state.selectedIndex}
 									/>
 				})
