@@ -36,7 +36,10 @@ function Navbar(props){
 			</div>
 			<div style={subNav}>
 				<div className='nav-item'>
-					<SearchBox searchOpen={props.searchOpen} onSearchOpen={props.onSearchOpen}/>
+					<SearchBox 
+					searchOpen={props.searchOpen} 
+					onSearchOpen={props.onSearchOpen}
+					onSearchChange={props.onSearchChange}/>
 				</div>
 				<div className='nav-item'>
 					<a>DVD</a>

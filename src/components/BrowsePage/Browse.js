@@ -17,8 +17,8 @@ import titles from './mockData';
 			navSelected:null,
 			myList:[],
 			selectedIndex:null,
-			searchText:'',
-			searchOpen:false
+			searchOpen:false,
+			searchText:''
 		}
 		this.checkIfTop=this.checkIfTop.bind(this);
 		this.hoverSelect=this.hoverSelect.bind(this);
@@ -58,7 +58,11 @@ import titles from './mockData';
 	}
 
 	searchTitleResults(){
-		return titles.filter(title=>title.name.includes(this.state.searchText))
+		return titles.filter(title=>title.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
+	}
+
+	handleSearchChange=(event)=>{
+		this.setState({searchText:event.target.value})
 	}
 
 	handleAddToList(title){
@@ -80,7 +84,8 @@ import titles from './mockData';
 				top={this.state.top} 
 				hoverSelect={this.hoverSelect} 
 				searchOpen={this.state.searchOpen}
-				onSearchOpen={this.handleSearchOpen} />
+				onSearchOpen={this.handleSearchOpen}
+				onSearchChange={this.handleSearchChange} />
 			{
 				this.state.navSelected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
