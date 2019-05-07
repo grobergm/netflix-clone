@@ -23,6 +23,7 @@ function Title(props){
 		paddingLeft:'1vw'
 	}
 
+
 	let info=null;
 		if(props.selected===props.id){
 				info= 

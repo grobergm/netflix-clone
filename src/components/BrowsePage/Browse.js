@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import HeroTitle from './HeroTitle';
 import BrowseDrop from './BrowseDrop';
 import TitleRow from './TitleRow';
+import SearchResults from './SearchResults';
 
 import titles from './mockData';
 
@@ -13,12 +14,17 @@ import titles from './mockData';
 		super(props);
 		this.state={
 			top:true,
-			selected:null,
-			myList:[]
+			navSelected:null,
+			myList:[],
+			selectedIndex:null,
+			searchText:'t'
 		}
 		this.checkIfTop=this.checkIfTop.bind(this);
 		this.hoverSelect=this.hoverSelect.bind(this);
 		this.handleAddToList=this.handleAddToList.bind(this);
+		this.searchTitleResults=this.searchTitleResults.bind(this);
+		this.handleTitleSelect=this.handleTitleSelect.bind(this);
+
 	}
 
 	componentDidMount(){
@@ -38,12 +44,15 @@ import titles from './mockData';
 	}
 
 	hoverSelect(name){
-		this.setState({selected:name});
-		console.log(this.state.selected)
+		this.setState({navSelected:name});
 	}
 
 	filterTitles(category,subCategory){
 		return titles.filter(title=>title[category]===subCategory)
+	}
+
+	searchTitleResults(){
+		return titles.filter(title=>title.name.includes(this.state.searchText))
 	}
 
 	handleAddToList(title){
@@ -53,47 +62,76 @@ import titles from './mockData';
 		}
 		this.setState({myList:currentList});
 	}
+	handleTitleSelect(id){
+		this.setState({selectedIndex:id});
+	}
 
 	render(){
+
 	return(
 		<div>
 			<Navbar top={this.state.top} hoverSelect={this.hoverSelect} />
 			{
-				this.state.selected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
+				this.state.navSelected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}
 			<HeroTitle />
-			<TitleRow 
-				header='My List' 
-				titles={this.state.myList}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='New Releases' 
-				titles={this.filterTitles('newRelease',true)}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='Documentaries' 
-				titles={this.filterTitles('genre','Documentary')}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='Action' 
-				titles={this.filterTitles('genre','Action')}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='Comedy' 
-				titles={this.filterTitles('genre','Comedy')}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='Horror' 
-				titles={this.filterTitles('genre','Horror')}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='TV' 
-				titles={this.filterTitles('type','TV')}
-				onAddToList={this.handleAddToList} />
-			<TitleRow 
-				header='Movies' 
-				titles={this.filterTitles('type','Movie')}
-				onAddToList={this.handleAddToList} />
+			{ this.state.searchText ? 
+				<SearchResults 
+					titles={this.searchTitleResults()} 
+					selected={this.state.selectedIndex}
+					handleTitleSelect={this.handleTitleSelect}  /> :
+				<div>
+					<TitleRow 
+						header='My List' 
+						titles={this.state.myList}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='New Releases' 
+						titles={this.filterTitles('newRelease',true)}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='Documentaries' 
+						titles={this.filterTitles('genre','Documentary')}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='Action' 
+						titles={this.filterTitles('genre','Action')}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='Comedy' 
+						titles={this.filterTitles('genre','Comedy')}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='Horror' 
+						titles={this.filterTitles('genre','Horror')}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='TV' 
+						titles={this.filterTitles('type','TV')}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+					<TitleRow 
+						header='Movies' 
+						titles={this.filterTitles('type','Movie')}
+						onAddToList={this.handleAddToList}
+						selected={this.state.selectedIndex}
+						handleTitleSelect={this.handleTitleSelect} />
+				</div>
+			} 
+			
 		</div>
 	)
 	}

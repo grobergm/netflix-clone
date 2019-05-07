@@ -3,50 +3,35 @@ import Title from './Title';
 
 
 
-class TitleRow extends Component{
-	constructor(props){
-		super(props);
-		this.state={
-			selectedIndex:null
-		}
-		this.handleSelect=this.handleSelect.bind(this);
-	}
+function TitleRow(props){
 
-	handleSelect(id){
-		this.setState({selectedIndex:id});
+	const styles={
+		overflowX:'visable',
+		whiteSpace: 'nowrap',
+		padding:'5vh 5vw',
+		position:'relative',
+		zIndex:'0',
+		textAlign:'left'
 	}
-
-	render(){
-		const styles={
-			overflowX:'visable',
-			whiteSpace: 'nowrap',
-			padding:'5vh 5vw',
-			position:'relative',
-			zIndex:'0',
-			textAlign:'left'
-		}
+	console.log(props.selected)
 
 	return (
-		<div style={{overflow:'hidden'}}>
-			<div style={styles}>
-				<p>{this.props.header}</p>
-				{
-					this.props.titles.map((title,index)=>{
-						return <Title
-											title={title}
-											key={index}
-											id={index}
-											onSelect={this.handleSelect}
-											selected={this.state.selectedIndex}
-											onAddToList={this.props.onAddToList}
-										/>
-					})
-				}
-			</div>
+		<div style={styles}>
+			<p>{props.header}</p>
+			{
+				props.titles.map((title,index)=>{
+					return <Title
+										title={title}
+										key={index}
+										id={index}
+										onSelect={props.handleTitleSelect}
+										selected={props.selected}
+										onAddToList={props.onAddToList}
+									/>
+				})
+			}
 		</div>
-		)
-	}
-	
+	)
 }
 
 export default TitleRow;
