@@ -78,7 +78,22 @@ import titles from './mockData';
 				header='Action' 
 				titles={this.filterTitles('genre','Action')}
 				onAddToList={this.handleAddToList} />
-			
+			<TitleRow 
+				header='Comedy' 
+				titles={this.filterTitles('genre','Comedy')}
+				onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='Horror' 
+				titles={this.filterTitles('genre','Horror')}
+				onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='TV' 
+				titles={this.filterTitles('type','TV')}
+				onAddToList={this.handleAddToList} />
+			<TitleRow 
+				header='Movies' 
+				titles={this.filterTitles('type','Movie')}
+				onAddToList={this.handleAddToList} />
 		</div>
 	)
 	}

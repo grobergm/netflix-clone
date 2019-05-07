@@ -18,7 +18,7 @@ class TitleRow extends Component{
 
 	render(){
 		const styles={
-			overflowX:'auto',
+			overflowX:'visable',
 			whiteSpace: 'nowrap',
 			padding:'5vh 5vw',
 			position:'relative',
@@ -27,20 +27,22 @@ class TitleRow extends Component{
 		}
 
 	return (
-		<div style={styles}>
-			<p>{this.props.header}</p>
-			{
-				this.props.titles.map((title,index)=>{
-					return <Title
-										title={title}
-										key={index}
-										id={index}
-										onSelect={this.handleSelect}
-										selected={this.state.selectedIndex}
-										onAddToList={this.props.onAddToList}
-									/>
-				})
-			}
+		<div style={{overflow:'hidden'}}>
+			<div style={styles}>
+				<p>{this.props.header}</p>
+				{
+					this.props.titles.map((title,index)=>{
+						return <Title
+											title={title}
+											key={index}
+											id={index}
+											onSelect={this.handleSelect}
+											selected={this.state.selectedIndex}
+											onAddToList={this.props.onAddToList}
+										/>
+					})
+				}
+			</div>
 		</div>
 		)
 	}
