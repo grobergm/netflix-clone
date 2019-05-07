@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Netflix font-end clone
 
-## Available Scripts
+## Developed by: Matt Groberg
 
-In the project directory, you can run:
+_This is a front-end clone of netflix, using React. It isnt an exact clone, but I tried to replicate most of the styles and functionality.
 
-### `npm start`
+## Setup  
+1. Clone, or Download this repository. 
+2. Navigate to the root directory in your terminal.
+2. Install Dependancies: npm i
+3. Start dev Server (It will be running on localhost:3000) : npm start
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. Uses React Router to Conditionally Render the Login Page, or the Browse Page
+* Click the sign in button at the top to route to the browse page, and the Netflix logo to route back to the Login page.
 
-### `npm test`
+2. Uses class components only in the two main parent components (Login and Browse).
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. State is used on Login to alternate previews when Icons are clicked.
 
-### `npm run build`
+4. State and methods are used in Browse to:
+*  Determine if window is at top, so navbar can change style
+* Keep track of which dropdown to show in the navBar (Currently only Browse is functional).
+* Keep track of titles added to the users list
+* Track which titles are being selected (changing their rendoring)
+* Toggling the Searchbox when hourglass is clicked.
+* Keeping track of text entered into serch box.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. A filter method is used to conditionally display Titles in each TitleRow, based on the arguments given to the function as a prop to TitleRow: (
+	For example: 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+	Input : filterTitles('genre','Documentary')
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+	Action: Checks each title object in a hard coded mock data array to see if the key of 'genre' is equal to 'Documentary'.
 
-### `npm run eject`
+	Output: [
+	{name:'Our Planet', genre: 'Documentary'. ...}
+	{name:'Street Food', genre: 'Documentary'. ...}
+	...
+	]
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. When text is entered in the search box, renders a SearchResults component, rather than the TitleRows.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+7. Entering text in the search box triggers a method that updates the state of the search text
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+8. A different filter function is used to test if each title includes the search text, and this array is passed as a prop to the SearchResults Component
