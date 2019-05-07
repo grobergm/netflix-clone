@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title';
 
-
-
 function TitleRow(props){
 
 	const styles={
@@ -13,17 +11,16 @@ function TitleRow(props){
 		zIndex:'0',
 		textAlign:'left'
 	}
-	console.log(props.selected)
 
 	return (
 		<div style={styles}>
 			<p>{props.header}</p>
-			{
+			{ 
 				props.titles.map((title,index)=>{
 					return <Title
 										title={title}
-										key={index}
-										id={index}
+										key={props.header+index}
+										id={props.header+index}
 										onSelect={props.handleTitleSelect}
 										selected={props.selected}
 										onAddToList={props.onAddToList}

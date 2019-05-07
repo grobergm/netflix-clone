@@ -17,7 +17,7 @@ import titles from './mockData';
 			navSelected:null,
 			myList:[],
 			selectedIndex:null,
-			searchText:'t'
+			searchText:''
 		}
 		this.checkIfTop=this.checkIfTop.bind(this);
 		this.hoverSelect=this.hoverSelect.bind(this);
