@@ -17,13 +17,15 @@ import titles from './mockData';
 			navSelected:null,
 			myList:[],
 			selectedIndex:null,
-			searchText:''
+			searchText:'',
+			searchOpen:false
 		}
 		this.checkIfTop=this.checkIfTop.bind(this);
 		this.hoverSelect=this.hoverSelect.bind(this);
 		this.handleAddToList=this.handleAddToList.bind(this);
 		this.searchTitleResults=this.searchTitleResults.bind(this);
 		this.handleTitleSelect=this.handleTitleSelect.bind(this);
+		this.handleSearchOpen=this.handleSearchOpen.bind(this);
 
 	}
 
@@ -45,6 +47,10 @@ import titles from './mockData';
 
 	hoverSelect(name){
 		this.setState({navSelected:name});
+	}
+
+	handleSearchOpen(){
+		this.state.searchOpen ? this.setState({searchOpen:false}) : this.setState({searchOpen:true})
 	}
 
 	filterTitles(category,subCategory){
@@ -70,7 +76,11 @@ import titles from './mockData';
 
 	return(
 		<div>
-			<Navbar top={this.state.top} hoverSelect={this.hoverSelect} />
+			<Navbar 
+				top={this.state.top} 
+				hoverSelect={this.hoverSelect} 
+				searchOpen={this.state.searchOpen}
+				onSearchOpen={this.handleSearchOpen} />
 			{
 				this.state.navSelected==='browse'? <BrowseDrop hoverSelect={this.hoverSelect} /> : null
 			}

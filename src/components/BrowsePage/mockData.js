@@ -21,7 +21,7 @@ const titles=[
 {name:'Avengers', img:avengers, newRelease:true, type:'Movie', genre:'Action', tags:['Exciting','Super Hero','Sci Fi']},
 {name:'Final Destination', img:final, newRelease:false, type:'Movie', genre:'Horror', tags:['Exciting','Super Hero','Sci Fi']},
 {name:'Planet Earth 2', img:earth, newRelease:false, type:'TV', genre:'Documentary', tags:['Limited Series','Science & Nature','All Things Wild']},
-{name:'Gremlins', img:gremlins, newRelease:false, type:'TV', genre:'Horror', tags:['Visionary','Food & Wine','Docuseries']},
+{name:'Gremlins', img:gremlins, newRelease:false, type:'Movie', genre:'Horror', tags:['Visionary','Food & Wine','Docuseries']},
 {name:'Incredibles 2', img:incredibles, newRelease:true, type:'Movie', genre:'Comedy', tags:['Horror','Post Apocolypse','Zombies']},
 {name:'I am Legend', img:legend, newRelease:false, type:'Movie', genre:'Action', tags:['Exciting','Super Hero','Sci Fi']},
 {name:'The Office', img:office, newRelease:false, type:'TV', genre:'Action', tags:['Exciting','Super Hero','Sci Fi']},

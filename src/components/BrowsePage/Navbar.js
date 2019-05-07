@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import profile from '../../img/browse/profile.png';
+import SearchBox from './SearchBox';
+
 import { Link } from "react-router-dom";
 
 function Navbar(props){
@@ -34,7 +36,7 @@ function Navbar(props){
 			</div>
 			<div style={subNav}>
 				<div className='nav-item'>
-					<i className="fas fa-search"></i>
+					<SearchBox searchOpen={props.searchOpen} onSearchOpen={props.onSearchOpen}/>
 				</div>
 				<div className='nav-item'>
 					<a>DVD</a>

@@ -36,3 +36,7 @@ p{
 	border-radius:50%;
 	cursor:pointer;
 }
+
+.search-animation{
+	transition:transform 0.5s;
+}
